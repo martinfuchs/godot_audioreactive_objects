@@ -1,6 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://q30qqmrtwxlc"]
 
 [ext_resource type="FontFile" uid="uid://djbemc7m5umc2" path="res://assets/IBMPlexSans-Thin.ttf" id="1_bk485"]
+[ext_resource type="AudioStream" uid="uid://vh175ymiijr3" path="res://assets/sounds/noise_flacker.mp3" id="1_ii07t"]
 [ext_resource type="FontFile" uid="uid://dtxjuiratwcwe" path="res://assets/IBMPlexSans-Bold.ttf" id="1_sbmhd"]
 [ext_resource type="Script" path="res://scripts/audio_interpreter.gd" id="1_un4cg"]
 [ext_resource type="Script" path="res://scripts/show_spectrum.gd" id="2_mwokg"]
@@ -9,8 +10,6 @@
 background_mode = 1
 background_color = Color(0.678431, 0.678431, 0.678431, 1)
 volumetric_fog_density = 0.03
-
-[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_gva5d"]
 
 [sub_resource type="FontVariation" id="FontVariation_unu0f"]
 base_font = ExtResource("1_sbmhd")
@@ -34,7 +33,7 @@ font_size = 127
 environment = SubResource("Environment_6tjd1")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamMicrophone_gva5d")
+stream = ExtResource("1_ii07t")
 autoplay = true
 
 [node name="2DSubViewportContainer" type="SubViewportContainer" parent="."]
