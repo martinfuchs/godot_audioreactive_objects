@@ -6,10 +6,11 @@ extends Node3D
 @export var c_move:Vector3 = Vector3(0,0,0)
 @export var c_scale:Vector3 = Vector3(0,0,0)
 
+# fft spectrum helps us identify the different frequencies present in the signal. 
 @onready var spectrum = Spectrum.new()
 
 func _ready():
-	spectrum.vu_count = 16
+	spectrum.vu_count = 16 # resolution
 	spectrum.smoothing = smoothing
 	spectrum.init()
 

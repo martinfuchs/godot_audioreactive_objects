@@ -53,7 +53,7 @@ autoplay = true
 mesh = SubResource("BoxMesh_k8068")
 skeleton = NodePath("../..")
 script = ExtResource("1_un4cg")
-index = 2
+index = 15
 c_scale = Vector3(10, 0, 0)
 
 [node name="Node3D2" type="Node3D" parent="."]
