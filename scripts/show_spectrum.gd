@@ -21,13 +21,12 @@ func _process(_delta):
 
 
 func _draw():
-	#warning-ignore:integer_division
 	var w = WIDTH / VU_COUNT
 	var prev_hz = 0
-	for i in range(1, VU_COUNT+1):
+	for i in range(0, VU_COUNT+1):
 		var hz = i * FREQ_MAX / VU_COUNT
-		var magnitude: float.get_magnitude_for_frequency_range(prev_hz, hz).length()
-		var energy = clamp((MIN_DB + linear_to_db(magnitude)) / MIN_DB, 0, 1)
+		var magnitude: float = spectrum.get_magnitude_for_frequency_range(prev_hz, hz).length()
+		var energy = clamp((MIN_DB + linear_to_db(magnitude)) / MIN_DB, 0.0, 1.0)
 		var height = energy * HEIGHT
 		draw_rect(Rect2(w * i, HEIGHT - height, w, height), Color(1,1,1))
 		prev_hz = hz

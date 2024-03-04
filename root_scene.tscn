@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://q30qqmrtwxlc"]
 
-[ext_resource type="Script" path="res://audio_interpreter.gd" id="1_un4cg"]
-[ext_resource type="Script" path="res://show_spectrum.gd" id="2_mwokg"]
+[ext_resource type="Script" path="res://scripts/audio_interpreter.gd" id="1_un4cg"]
+[ext_resource type="Script" path="res://scripts/show_spectrum.gd" id="2_mwokg"]
 
 [sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_gva5d"]
 
@@ -11,6 +11,7 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamMicrophone_gva5d")
+autoplay = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_k8068")
@@ -20,11 +21,14 @@ script = ExtResource("1_un4cg")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.90155)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 544.0
+offset_bottom = 544.0
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
+size = Vector2i(200, 200)
 render_target_update_mode = 4
 
 [node name="RootNode2d" type="Control" parent="SubViewportContainer/SubViewport"]
@@ -33,11 +37,15 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="spectrum" type="Node2D" parent="SubViewportContainer/SubViewport/RootNode2d"]
-script = ExtResource("2_mwokg")
-
 [node name="Label" type="Label" parent="SubViewportContainer/SubViewport/RootNode2d"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Test"
+text = "SPECTRUM"
+
+[node name="spectrum" type="Node2D" parent="SubViewportContainer/SubViewport/RootNode2d"]
+position = Vector2(0, 30)
+script = ExtResource("2_mwokg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40974, 0.918409, 1.22484)
