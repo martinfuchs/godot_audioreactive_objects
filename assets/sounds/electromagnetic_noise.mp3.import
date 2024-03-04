@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/electromagnetic_noise.mp3-414cf30148ac95847eb
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
